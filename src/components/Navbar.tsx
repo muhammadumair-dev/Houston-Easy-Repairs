@@ -1,81 +1,90 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useRouter } from "../router";
 import { COMPANY } from "../data";
+import { Wrench, Phone, Menu, X } from "lucide-react";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "HOME" },
+  { to: "/about", label: "ABOUT" },
+  { to: "/services", label: "SERVICES" },
+  { to: "/contact", label: "CONTACT" },
 ];
 
 export default function Navbar() {
   const { path } = useRouter();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xl font-bold shadow-md group-hover:scale-105 transition">
-              🔧
+    <header 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-primary-bg/95 backdrop-blur-md border-b border-border py-4" : "bg-transparent py-6"
+      }`}
+    >
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="w-12 h-12 bg-primary-accent flex items-center justify-center text-white shadow-premium group-hover:scale-110 transition-transform duration-300 rounded-lg">
+              <Wrench size={24} strokeWidth={2.5} />
             </div>
-            <div className="leading-tight">
-              <div className="text-lg sm:text-xl font-extrabold text-slate-900">
-                Houston Easy Repairs
+            <div className="leading-none">
+              <div className="text-xl sm:text-2xl font-black text-primary-text tracking-tighter uppercase">
+                HOUSTON <span className="text-primary-accent">EASY REPAIRS</span>
               </div>
-              <div className="text-[11px] sm:text-xs text-slate-500 font-medium">
-                Fast • Reliable • Affordable
+              <div className="text-[10px] text-muted-text font-black tracking-[0.2em] mt-1 uppercase">
+                Fast • Reliable • Local
               </div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2">
             {NAV.map((n) => {
               const active = path === n.to;
               return (
                 <Link
                   key={n.to}
                   to={n.to}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-                    active
-                      ? "text-orange-600 bg-orange-50"
-                      : "text-slate-700 hover:text-orange-600 hover:bg-slate-50"
+                  className={`px-6 py-2 text-xs font-black tracking-widest transition-all duration-300 relative group ${
+                    active ? "text-primary-accent" : "text-secondary-text hover:text-primary-accent"
                   }`}
                 >
                   {n.label}
+                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-accent transition-all duration-300 group-hover:w-full ${active ? "w-full" : ""}`} />
                 </Link>
               );
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-6">
             <a
               href={COMPANY.phoneHref}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition"
+              className="btn-primary flex items-center gap-3 !py-3 !px-6"
             >
-              <span>📞</span> {COMPANY.phone}
+              <Phone size={16} strokeWidth={3} /> {COMPANY.phone}
             </a>
           </div>
 
           <button
-            className="lg:hidden p-2 rounded-md text-slate-700 hover:bg-slate-100"
+            className="lg:hidden p-3 bg-secondary-bg border border-border text-primary-text hover:bg-primary-accent hover:text-white transition-all duration-300 rounded-lg"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {open ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
           </button>
         </div>
 
-        {open && (
-          <div className="lg:hidden pb-4 space-y-1">
+        {/* Mobile menu */}
+        <div 
+          className={`lg:hidden fixed inset-0 top-[72px] bg-primary-bg/98 backdrop-blur-xl transition-all duration-500 transform ${
+            open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+          }`}
+        >
+          <div className="p-8 space-y-4">
             {NAV.map((n) => {
               const active = path === n.to;
               return (
@@ -83,10 +92,8 @@ export default function Navbar() {
                   key={n.to}
                   to={n.to}
                   onClick={() => setOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-semibold ${
-                    active
-                      ? "text-orange-600 bg-orange-50"
-                      : "text-slate-700 hover:bg-slate-50"
+                  className={`block px-6 py-4 text-lg font-black tracking-widest border-b border-border ${
+                    active ? "text-primary-accent" : "text-primary-text"
                   }`}
                 >
                   {n.label}
@@ -95,12 +102,12 @@ export default function Navbar() {
             })}
             <a
               href={COMPANY.phoneHref}
-              className="block mt-2 text-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-5 py-3 rounded-lg font-semibold text-sm shadow"
+              className="block mt-8 text-center btn-primary"
             >
-              📞 {COMPANY.phone}
+              <Phone size={18} strokeWidth={3} className="inline-block mr-2" /> {COMPANY.phone}
             </a>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

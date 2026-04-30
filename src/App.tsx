@@ -8,8 +8,13 @@ import Contact from "./pages/Contact";
 
 function Pages() {
   const { path } = useRouter();
+  console.log("Current path:", path);
   let Page;
   switch (path) {
+    case "/":
+    case "":
+      Page = Home;
+      break;
     case "/about":
       Page = About;
       break;
@@ -24,7 +29,7 @@ function Pages() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900">
+    <div className="min-h-screen flex flex-col bg-primary-bg text-primary-text selection:bg-primary-accent selection:text-white">
       <Navbar />
       <main className="flex-1">
         <Page />

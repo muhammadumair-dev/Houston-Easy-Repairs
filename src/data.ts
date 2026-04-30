@@ -10,7 +10,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "handyman",
     title: "Home Repair & Handyman Services",
-    icon: "🛠️",
+    icon: "Wrench",
     short:
       "From small fixes to bigger projects, our handymen handle it all with precision and care.",
     items: [
@@ -27,7 +27,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "electrical",
     title: "Electrical Repair Services",
-    icon: "⚡",
+    icon: "Zap",
     short:
       "Licensed electrical work to keep your home and business safe, code-compliant, and powered.",
     items: [
@@ -44,7 +44,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "plumbing",
     title: "Plumbing Repair Services",
-    icon: "🚿",
+    icon: "Droplets",
     short:
       "Fast, leak-free plumbing repairs and installations for kitchens, bathrooms, and more.",
     items: [
@@ -61,7 +61,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "maintenance",
     title: "Property Maintenance Services",
-    icon: "🏡",
+    icon: "Home",
     short:
       "Keep your residential or commercial property in top shape year-round with scheduled care.",
     items: [
@@ -78,7 +78,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "installation",
     title: "Installation & Repair Services",
-    icon: "🔧",
+    icon: "Hammer",
     short:
       "Professional installation of fixtures, appliances, and home upgrades — done right the first time.",
     items: [
@@ -116,27 +116,27 @@ export const COMPANY = {
 
 export const WHY_CHOOSE_US = [
   {
-    icon: "👷",
+    icon: "Award",
     title: "Experienced & Skilled Technicians",
     desc: "Our team brings years of hands-on experience to every job, big or small.",
   },
   {
-    icon: "⚡",
+    icon: "Zap",
     title: "Fast & Dependable Service",
     desc: "We show up on time and finish the job efficiently — without cutting corners.",
   },
   {
-    icon: "💲",
+    icon: "DollarSign",
     title: "Affordable & Transparent Pricing",
     desc: "Honest quotes with no hidden fees. You always know what you're paying for.",
   },
   {
-    icon: "🏢",
+    icon: "Building2",
     title: "Residential & Commercial",
     desc: "From homes to businesses, we handle properties of every shape and size.",
   },
   {
-    icon: "⭐",
+    icon: "Heart",
     title: "Customer Satisfaction First",
     desc: "We're not done until you're 100% happy with the work we've delivered.",
   },

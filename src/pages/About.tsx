@@ -1,157 +1,159 @@
 import { Link } from "../router";
 import { COMPANY } from "../data";
 import { PageHero, Section, SectionHeader } from "../components/Section";
+import { Users, ShieldCheck, Trophy, Banknote, Target, Phone } from "lucide-react";
 
 const COMMITMENTS = [
   {
-    icon: "🤝",
+    icon: Users,
     title: "Professional Service",
     desc: "Courteous, uniformed technicians who respect your home and your time.",
   },
   {
-    icon: "💯",
+    icon: ShieldCheck,
     title: "Honesty First",
     desc: "Straightforward assessments and recommendations — never pushy upsells.",
   },
   {
-    icon: "🏆",
+    icon: Trophy,
     title: "Quality Workmanship",
     desc: "We use the right tools and materials to make every repair last.",
   },
   {
-    icon: "💵",
+    icon: Banknote,
     title: "Fair Pricing",
     desc: "Transparent, upfront quotes with no hidden fees or surprise charges.",
   },
 ];
 
+/**
+ * Handcrafted About page for Houston Easy Repairs.
+ * Emphasizes heritage, mission, and professional standard.
+ */
 export default function About() {
   return (
-    <>
+    <div className="bg-primary-bg">
       <PageHero
-        breadcrumb="About Us"
+        breadcrumb="Our Heritage"
         title="Repair Experts You Can Count On"
         subtitle="Locally owned and operated, Houston Easy Repairs has built its reputation one quality repair at a time."
       />
 
-      {/* INTRO */}
-      <Section className="bg-white">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* INTRO SECTION */}
+      <Section className="bg-primary-bg">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           <div>
-            <div className="inline-block text-orange-600 text-xs font-bold uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-full mb-4">
-              Who We Are
+            <div className="inline-block text-primary-accent text-[10px] font-black uppercase tracking-[0.3em] bg-primary-accent/5 border border-primary-accent/20 px-5 py-2.5 rounded-full mb-10">
+              Corporate Overview
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
-              Houston's Go-To Team for Reliable Home Repairs
+            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-black text-primary-text leading-[0.9] tracking-tighter mb-12 uppercase">
+              HOUSTON'S ELITE TEAM<br />
+              FOR <span className="text-gradient">HOME REPAIR</span>
             </h2>
-            <div className="space-y-4 text-slate-600 leading-relaxed">
+            <div className="space-y-8 text-secondary-text leading-relaxed font-medium text-lg">
               <p>
-                Houston Easy Repairs is a full-service home repair and maintenance
-                company proudly serving Rosenberg, Houston, Richmond, Sugar Land,
-                Katy, and surrounding communities. We started with a simple goal:
-                make professional repair services <strong>easy, affordable, and
-                stress-free</strong> for every homeowner and business in our area.
+                Houston Easy Repairs is a full-service maintenance firm proudly serving 
+                Rosenberg, Houston, Richmond, Sugar Land, Katy, and surrounding communities. 
+                We started with a singular objective: redefine the standard for 
+                professional repair services.
               </p>
               <p>
-                Whether you need a small handyman fix, a complex electrical or
-                plumbing repair, or ongoing property maintenance, our experienced
-                technicians bring skill, integrity, and pride to every job. We
-                treat your property like our own — and we don't consider a job
-                done until you're completely satisfied.
-              </p>
-              <p>
-                With years of hands-on experience and a commitment to excellence,
-                we've become the trusted name local families and businesses turn
-                to when they need it done right the first time.
+                Whether you require a surgical handyman fix, complex technical 
+                integration, or comprehensive property maintenance, our 
+                experienced technicians deliver results that stand the test of time.
               </p>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-16 flex flex-col sm:flex-row gap-6">
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:-translate-y-0.5 transition"
+                className="btn-primary !px-12 !py-6"
               >
-                See Our Services →
+                OUR SERVICES
               </Link>
               <a
                 href={COMPANY.phoneHref}
-                className="inline-flex items-center justify-center gap-2 bg-slate-100 text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-200 transition"
+                className="btn-outline !px-12 !py-6 flex items-center justify-center gap-3"
               >
-                📞 {COMPANY.phone}
+                <Phone size={18} strokeWidth={3} /> {COMPANY.phone}
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6 lg:gap-10">
             {[
-              { num: "10+", label: "Years of Experience" },
-              { num: "5,000+", label: "Repairs Completed" },
-              { num: "5", label: "Cities Served" },
-              { num: "100%", label: "Satisfaction Goal" },
+              { num: "10+", label: "Years Experience" },
+              { num: "5K+", label: "Projects Completed" },
+              { num: "05", label: "Primary Areas" },
+              { num: "100%", label: "Satisfaction Rate" },
             ].map((s) => (
               <div
                 key={s.label}
-                className="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg transition"
+                className="group relative glass-card p-12 flex flex-col items-center justify-center rounded-3xl transition-all duration-500 hover:border-primary-accent/50 overflow-hidden"
               >
-                <div className="text-4xl font-extrabold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+                <div className="text-5xl lg:text-7xl font-black text-primary-accent mb-4 tracking-tighter group-hover:scale-110 transition-transform duration-500">
                   {s.num}
                 </div>
-                <div className="mt-2 text-sm font-semibold text-slate-700">
+                <div className="text-[10px] font-black text-muted-text uppercase tracking-[0.2em] text-center">
                   {s.label}
                 </div>
+                <div className="absolute bottom-0 left-0 w-0 h-1.5 bg-gradient-to-r from-primary-accent to-secondary-accent transition-all duration-500 group-hover:w-full" />
               </div>
             ))}
           </div>
         </div>
       </Section>
 
-      {/* MISSION */}
-      <Section className="bg-slate-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-10 lg:p-14 text-center text-white shadow-2xl relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-red-600/20 rounded-full blur-3xl" />
-            <div className="relative">
-              <div className="text-5xl mb-4">🎯</div>
-              <div className="text-orange-400 text-xs font-bold uppercase tracking-widest mb-3">
-                Our Mission
+      {/* MISSION BLOCK */}
+      <Section className="bg-secondary-bg/20 border-y border-border py-24 lg:py-48">
+        <div className="max-w-6xl mx-auto">
+          <div className="relative p-12 lg:p-28 text-center overflow-hidden group">
+            <div className="absolute inset-0 bg-card-bg/40 backdrop-blur-xl border border-border/50 rounded-[4rem] shadow-premium" />
+            <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary-accent/10 rounded-full blur-[120px]" />
+            <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-secondary-accent/5 rounded-full blur-[120px]" />
+            
+            <div className="relative z-10">
+              <div className="flex justify-center mb-12 transform transition-transform duration-700 group-hover:scale-110 text-primary-accent">
+                <Target size={80} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-5 leading-tight">
-                To deliver dependable, high-quality repair and maintenance services
-                that make life easier for every customer we serve.
+              <div className="text-primary-accent text-[10px] font-black uppercase tracking-[0.4em] mb-8 bg-primary-accent/10 py-2 px-4 inline-block rounded-full border border-primary-accent/20">
+                Strategic Mission
+              </div>
+              <h3 className="text-4xl lg:text-7xl font-black text-primary-text mb-12 leading-[1.1] tracking-tighter uppercase">
+                TO DELIVER UNCOMPROMISING QUALITY THAT MAKES LIFE EASIER FOR EVERYONE WE SERVE.
               </h3>
-              <p className="text-slate-300 leading-relaxed max-w-2xl mx-auto">
-                We aim to be the most trusted name in home and commercial repair
-                across the greater Houston area — by combining skilled craftsmanship,
-                honest communication, and genuine care for our community.
+              <p className="text-secondary-text text-xl sm:text-2xl font-medium max-w-4xl mx-auto leading-relaxed">
+                We aim to be the definitive choice for home and commercial repair 
+                by combining elite craftsmanship with transparent, honest communication.
               </p>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* COMMITMENT */}
-      <Section className="bg-white">
+      {/* COMMITMENT GRID */}
+      <Section className="bg-primary-bg">
         <SectionHeader
-          eyebrow="Our Commitment"
-          title="What You Can Expect From Us"
-          subtitle="Every job we take on is guided by these four principles."
+          eyebrow="The Commitment"
+          title="What Defines Our Service"
+          subtitle="Every project we execute is guided by these four foundational principles that ensure a premium experience."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {COMMITMENTS.map((c) => (
             <div
               key={c.title}
-              className="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-xl hover:-translate-y-1 hover:border-orange-200 transition-all"
+              className="group relative glass-card p-12 transition-all duration-500 hover:-translate-y-3 rounded-[2.5rem]"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center text-3xl mb-5">
-                {c.icon}
+              <div className="w-20 h-20 bg-primary-bg border border-border rounded-2xl flex items-center justify-center text-primary-accent mb-10 shadow-premium transition-all duration-500 group-hover:bg-primary-accent group-hover:text-white group-hover:border-primary-accent group-hover:shadow-primary-accent/20">
+                <c.icon size={40} strokeWidth={2} />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{c.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{c.desc}</p>
+              <h3 className="text-2xl font-black text-primary-text mb-5 uppercase tracking-tight">{c.title}</h3>
+              <p className="text-secondary-text text-base leading-relaxed font-medium">{c.desc}</p>
+              <div className="absolute top-10 right-10 w-2 h-2 bg-primary-accent rounded-full opacity-0 transition-all duration-500 group-hover:opacity-100" />
             </div>
           ))}
         </div>
       </Section>
-    </>
+    </div>
   );
 }

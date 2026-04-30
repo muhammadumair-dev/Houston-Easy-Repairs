@@ -8,20 +8,29 @@ type RouterCtx = {
 const Ctx = createContext<RouterCtx>({ path: "/", navigate: () => {} });
 
 function getPath() {
+  if (typeof window === "undefined") return "/";
   const hash = window.location.hash.replace(/^#/, "");
   return hash || "/";
 }
 
 export function RouterProvider({ children }: { children: React.ReactNode }) {
-  const [path, setPath] = useState<string>(getPath());
+  const [path, setPath] = useState<string>("/");
 
   useEffect(() => {
+    // Set initial path
+    const initialPath = getPath();
+    setPath(initialPath);
+    if (!window.location.hash) {
+      window.location.hash = "/";
+    }
+
     const onChange = () => {
-      setPath(getPath());
+      const newPath = getPath();
+      setPath(newPath);
       window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     };
+
     window.addEventListener("hashchange", onChange);
-    if (!window.location.hash) window.location.hash = "/";
     return () => window.removeEventListener("hashchange", onChange);
   }, []);
 
