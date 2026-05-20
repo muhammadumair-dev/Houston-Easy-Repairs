@@ -7,6 +7,7 @@ const NAV = [
   { to: "/", label: "HOME" },
   { to: "/about", label: "ABOUT" },
   { to: "/services", label: "SERVICES" },
+  { to: "/meta-ads", label: "META ADS" },
   { to: "/contact", label: "CONTACT" },
 ];
 
@@ -62,12 +63,12 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-6">
-            <a
-              href={COMPANY.phoneHref}
-              className="btn-primary flex items-center gap-3 !py-3 !px-6"
+            <Link
+              to="/contact"
+              className="btn-primary !py-3 !px-6 text-sm uppercase tracking-[0.28em]"
             >
-              <Phone size={16} strokeWidth={3} /> {COMPANY.phone}
-            </a>
+              Get Free Quote
+            </Link>
           </div>
 
           <button
@@ -100,11 +101,18 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <a
-              href={COMPANY.phoneHref}
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
               className="block mt-8 text-center btn-primary"
             >
-              <Phone size={18} strokeWidth={3} className="inline-block mr-2" /> {COMPANY.phone}
+              Get Free Quote
+            </Link>
+            <a
+              href={COMPANY.phoneHref}
+              className="block mt-4 text-center text-sm font-black uppercase tracking-[0.28em] text-primary-accent border border-border rounded-3xl px-6 py-4 hover:bg-primary-accent/10 transition-all"
+            >
+              Call {COMPANY.phone}
             </a>
           </div>
         </div>

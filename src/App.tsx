@@ -4,12 +4,14 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import MetaAds from "./pages/MetaAds";
 import Contact from "./pages/Contact";
 
 function Pages() {
   const { path } = useRouter();
   console.log("Current path:", path);
   let Page;
+
   switch (path) {
     case "/":
     case "":
@@ -20,6 +22,9 @@ function Pages() {
       break;
     case "/services":
       Page = Services;
+      break;
+    case "/meta-ads":
+      Page = MetaAds;
       break;
     case "/contact":
       Page = Contact;

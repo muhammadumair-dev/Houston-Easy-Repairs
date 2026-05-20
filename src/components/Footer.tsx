@@ -40,6 +40,7 @@ export default function Footer() {
                 { to: "/", label: "HOME" },
                 { to: "/about", label: "ABOUT" },
                 { to: "/services", label: "SERVICES" },
+                { to: "/meta-ads", label: "META ADS" },
                 { to: "/contact", label: "CONTACT" },
               ].map((l) => (
                 <li key={l.to}>
