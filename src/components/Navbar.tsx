@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useRouter } from "../router";
 import { COMPANY } from "../data";
-import { Wrench, Phone, Menu, X } from "lucide-react";
+import { Wrench, Menu, X } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "HOME" },
@@ -30,28 +30,28 @@ export default function Navbar() {
     >
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4 group">
-            <div className="w-12 h-12 bg-primary-accent flex items-center justify-center text-white shadow-premium group-hover:scale-110 transition-transform duration-300 rounded-lg">
-              <Wrench size={24} strokeWidth={2.5} />
+          <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-accent flex items-center justify-center text-white shadow-premium group-hover:scale-110 transition-transform duration-300 rounded-lg shrink-0">
+              <Wrench className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
             </div>
             <div className="leading-none">
-              <div className="text-xl sm:text-2xl font-black text-primary-text tracking-tighter uppercase">
+              <div className="text-lg sm:text-2xl font-black text-primary-text tracking-tighter uppercase">
                 HOUSTON <span className="text-primary-accent">EASY REPAIRS</span>
               </div>
-              <div className="text-[10px] text-muted-text font-black tracking-[0.2em] mt-1 uppercase">
+              <div className="text-[8px] sm:text-[10px] text-muted-text font-black tracking-[0.1em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 uppercase">
                 Fast • Reliable • Local
               </div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {NAV.map((n) => {
               const active = path === n.to;
               return (
                 <Link
                   key={n.to}
                   to={n.to}
-                  className={`px-6 py-2 text-xs font-black tracking-widest transition-all duration-300 relative group ${
+                  className={`px-4 xl:px-6 py-2 text-[10px] xl:text-xs font-black tracking-widest transition-all duration-300 relative group ${
                     active ? "text-primary-accent" : "text-secondary-text hover:text-primary-accent"
                   }`}
                 >
@@ -62,20 +62,20 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
             <Link
               to="/contact"
-              className="btn-primary !py-3 !px-6 text-sm uppercase tracking-[0.28em]"
+              className="btn-primary !py-2.5 !px-4 xl:!py-3 xl:!px-6 text-[10px] xl:text-sm uppercase tracking-[0.2em] xl:tracking-[0.28em]"
             >
               Get Free Quote
             </Link>
           </div>
 
           <button
-            className="lg:hidden p-3 bg-secondary-bg border border-border text-primary-text hover:bg-primary-accent hover:text-white transition-all duration-300 rounded-lg"
+            className="lg:hidden p-2 sm:p-3 bg-secondary-bg border border-border text-primary-text hover:bg-primary-accent hover:text-white transition-all duration-300 rounded-lg"
             onClick={() => setOpen(!open)}
           >
-            {open ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
+            {open ? <X className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={3} /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={3} />}
           </button>
         </div>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
                   key={n.to}
                   to={n.to}
                   onClick={() => setOpen(false)}
-                  className={`block px-6 py-4 text-lg font-black tracking-widest border-b border-border ${
+                  className={`block  px-6 py-4 text-lg font-black tracking-widest border-b border-border ${
                     active ? "text-primary-accent" : "text-primary-text"
                   }`}
                 >

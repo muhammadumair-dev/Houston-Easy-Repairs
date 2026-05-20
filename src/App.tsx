@@ -34,7 +34,7 @@ function Pages() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-primary-bg text-primary-text selection:bg-primary-accent selection:text-white">
+    <div className="overflow-hidden min-h-screen flex flex-col bg-primary-bg text-primary-text selection:bg-primary-accent selection:text-white">
       <Navbar />
       <main className="flex-1">
         <Page />

@@ -90,8 +90,8 @@ export function ServiceGridCard({
   icon: string;
 }) {
   return (
-    <div className="group relative glass-card rounded-3xl p-8 h-full flex flex-col shadow-premium hover:shadow-premium-hover">
-      <div className="overflow-hidden rounded-2xl bg-secondary-bg mb-8 aspect-[16/10] flex-shrink-0 relative border border-border/50">
+    <div className="group relative glass-card rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 h-full flex flex-col shadow-premium hover:shadow-premium-hover">
+      <div className="overflow-hidden rounded-xl sm:rounded-2xl bg-secondary-bg mb-6 sm:mb-8 aspect-[16/10] flex-shrink-0 relative border border-border/50">
         <img
           src={image}
           alt={title}
@@ -101,23 +101,23 @@ export function ServiceGridCard({
       </div>
 
       <div className="flex-1">
-        <div className="flex items-center gap-4 mb-4">
-           <div className="text-primary-accent grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110">
-             <IconRenderer name={icon} size={32} strokeWidth={2.5} />
+        <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+           <div className="text-primary-accent grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110 shrink-0">
+             <IconRenderer name={icon} className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2.5} />
            </div>
-           <h3 className="text-2xl font-black text-primary-text tracking-tight uppercase">
+           <h3 className="text-xl sm:text-2xl font-black text-primary-text tracking-tight uppercase">
             {title}
           </h3>
         </div>
-        <p className="text-secondary-text text-base leading-relaxed mb-8">
+        <p className="text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 text-secondary-text">
           {description}
         </p>
       </div>
 
       <div className="mt-auto">
-        <div className="flex items-center gap-2 font-black text-xs uppercase text-primary-accent group-hover:gap-4 transition-all duration-300">
+        <div className="flex items-center gap-2 font-black text-[10px] sm:text-xs uppercase text-primary-accent group-hover:gap-4 transition-all duration-300">
           <span>Explore Service</span>
-          <span className="text-lg">→</span>
+          <span className="text-base sm:text-lg">→</span>
         </div>
       </div>
     </div>
@@ -212,3 +212,4 @@ export function PageHero({ breadcrumb, title, subtitle }: { breadcrumb: string; 
     </section>
   );
 }
+
