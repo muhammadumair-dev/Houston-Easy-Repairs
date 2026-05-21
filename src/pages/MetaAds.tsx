@@ -108,7 +108,7 @@ export default function MetaAds() {
                 <p className="max-w-2xl text-base sm:text-lg md:text-xl text-secondary-text leading-relaxed">
                   Facebook & Instagram Lead Generation for Local Businesses. Premium dashboard visualizing budget, audiences, campaign structure, and growth projections.
                 </p>
-                <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link to="/contact" className="btn-primary !py-3 sm:!py-4 !px-4 sm:!px-8 !text-xs sm:!text-sm rounded-lg sm:rounded-xl text-center">
                     Book Consultation
                   </Link>
@@ -117,6 +117,107 @@ export default function MetaAds() {
                   </Link>
                 </div>
               </div>
+              <div className="grid gap-6 lg:hidden  sm:gap-8 lg:grid-cols-[1.3fr_0.7fr] order-1 lg:order-none">
+
+  <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium">
+
+    <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8">
+
+      <div>
+        <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-muted-text font-black">
+          Performance Projections
+        </p>
+
+        <h2 className="mt-2 sm:mt-4 text-xl sm:text-4xl font-black text-primary-text">
+          Forecast dashboard
+        </h2>
+      </div>
+
+      <div className="inline-flex items-center gap-2 rounded-full border border-border px-2 sm:px-4 py-1 sm:py-2 text-[7px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] text-secondary-text">
+        Forecast table
+      </div>
+
+    </div>
+
+    <div className="grid gap-3 sm:gap-6 xl:grid-cols-3">
+
+      {projections.map((item) => (
+
+        <div
+          key={item.label}
+          className="rounded-[1rem] sm:rounded-[2rem] bg-slate-950/80 border border-border p-3 sm:p-6"
+        >
+
+          <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.25em] text-muted-text font-black mb-2 sm:mb-4">
+            {item.label}
+          </p>
+
+          <p className="text-2xl sm:text-3xl font-black text-primary-text">
+            {item.leads}
+          </p>
+
+          <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-secondary-text">
+            CPL {item.cpl} • ROI {item.roi}
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+    <div className="mt-4 sm:mt-8 overflow-hidden rounded-[1rem] sm:rounded-[2rem] border border-border bg-slate-950/80 p-3 sm:p-6">
+
+      <div className="flex items-center justify-between mb-3 sm:mb-6 gap-2">
+
+        <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.25em] text-muted-text font-black">
+          Chart
+        </p>
+
+        <p className="text-[7px] sm:text-xs uppercase tracking-[0.15em] text-primary-accent">
+          Strong
+        </p>
+
+      </div>
+
+      <div className="grid gap-2 sm:gap-4 sm:grid-cols-3">
+
+        {[
+          { label: "Leads", value: 72, accent: "from-blue-500 to-cyan-400" },
+          { label: "Engagement", value: 84, accent: "from-cyan-400 to-blue-500" },
+          { label: "Conversion", value: 56, accent: "from-emerald-400 to-teal-400" },
+        ].map((item) => (
+
+          <div key={item.label} className="space-y-2">
+
+            <div className="flex items-center justify-between text-[8px] sm:text-sm uppercase tracking-[0.15em] text-secondary-text font-black">
+
+              <span>{item.label}</span>
+
+              <span>{item.value}%</span>
+
+            </div>
+
+            <div className="h-2 sm:h-3 rounded-full bg-slate-900 overflow-hidden">
+
+              <div
+                className={`h-full rounded-full bg-gradient-to-r ${item.accent}`}
+                style={{ width: `${item.value}%` }}
+              />
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
               <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
                 <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="glass-card border border-border/70 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2rem] shadow-premium">
@@ -189,8 +290,8 @@ export default function MetaAds() {
         </div>
       </section>
 
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 space-y-8 sm:space-y-10">
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 flex flex-col gap-8 sm:gap-10">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.2fr_0.8fr] order-2 lg:order-1">
           <div className="space-y-6 sm:space-y-8">
             <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium">
               <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8">
@@ -332,7 +433,7 @@ export default function MetaAds() {
           </div>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.3fr_0.7fr] mt-8 sm:mt-10">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:flex hidden order-1 lg:order-none">
           <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium">
             <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8">
               <div>
@@ -377,7 +478,7 @@ export default function MetaAds() {
             </div>
           </div>
 
-          <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium">
+          <div className="glass-card border hidden lg:inline border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium order-last lg:order-none">
             <div className="flex items-center justify-between gap-2 sm:gap-4 mb-4 sm:mb-8">
               <div className="min-w-0">
                 <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-muted-text font-black">Lead Form</p>
@@ -389,7 +490,7 @@ export default function MetaAds() {
             </div>
 
             {submitted ? (
-              <div className="rounded-[1rem] sm:rounded-[2rem] bg-slate-950/80 border border-border p-6 sm:p-10 text-center">
+              <div className="rounded-[1rem] sm:rounded-[2rem]  bg-slate-950/80 border border-border p-6 sm:p-10 text-center">
                 <p className="text-primary-accent uppercase tracking-[0.15em] text-[8px] sm:text-xs font-black mb-2 sm:mb-4">Submitted</p>
                 <h3 className="text-xl sm:text-3xl font-black text-primary-text mb-2 sm:mb-4">Thanks, we'll reach out soon.</h3>
                 <p className="text-xs sm:text-sm text-secondary-text">Your campaign brief is ready for our Houston team to review.</p>
@@ -434,7 +535,7 @@ export default function MetaAds() {
           </div>
         </div>
 
-        <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium mt-8 sm:mt-10">
+        <div className="glass-card border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium order-2 lg:order-none">
           <div className="flex flex-col gap-4 sm:gap-8">
             <div>
               <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-muted-text font-black">30-Day Plan</p>
@@ -462,6 +563,145 @@ export default function MetaAds() {
             </div>
           </div>
         </div>
+        <div className="glass-card lg:hidden border border-border/50 p-4 sm:p-8 rounded-[1.25rem] sm:rounded-[2.5rem] shadow-premium order-last lg:order-none">
+  
+  <div className="flex items-center justify-between gap-2 sm:gap-4 mb-4 sm:mb-8">
+    
+    <div className="min-w-0">
+      <p className="text-[8px] sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-muted-text font-black">
+        Lead Form
+      </p>
+
+      <h2 className="mt-1 sm:mt-4 text-xl sm:text-4xl font-black text-primary-text">
+        Client capture panel
+      </h2>
+    </div>
+
+    <div className="inline-flex items-center gap-2 rounded-full border border-border px-2 sm:px-4 py-1 sm:py-2 text-[7px] sm:text-xs uppercase tracking-[0.15em] text-secondary-text flex-shrink-0">
+      Live demo
+    </div>
+
+  </div>
+
+  {submitted ? (
+
+    <div className="rounded-[1rem] sm:rounded-[2rem] bg-slate-950/80 border border-border p-6 sm:p-10 text-center">
+
+      <p className="text-primary-accent uppercase tracking-[0.15em] text-[8px] sm:text-xs font-black mb-2 sm:mb-4">
+        Submitted
+      </p>
+
+      <h3 className="text-xl sm:text-3xl font-black text-primary-text mb-2 sm:mb-4">
+        Thanks, we'll reach out soon.
+      </h3>
+
+      <p className="text-xs sm:text-sm text-secondary-text">
+        Your campaign brief is ready for our Houston team to review.
+      </p>
+
+    </div>
+
+  ) : (
+
+    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-5">
+
+      <div className="space-y-1 sm:space-y-2">
+
+        <label className="text-[8px] sm:text-[10px] font-black text-muted-text uppercase tracking-widest">
+          Name
+        </label>
+
+        <input
+          type="text"
+          className="w-full bg-secondary-bg/50 border border-border px-3 sm:px-5 py-2 sm:py-4 rounded-lg sm:rounded-2xl text-primary-text text-xs sm:text-sm font-bold focus:border-primary-accent outline-none transition-all"
+          required
+        />
+
+      </div>
+
+      <div className="space-y-1 sm:space-y-2">
+
+        <label className="text-[8px] sm:text-[10px] font-black text-muted-text uppercase tracking-widest">
+          Phone
+        </label>
+
+        <input
+          type="tel"
+          className="w-full bg-secondary-bg/50 border border-border px-3 sm:px-5 py-2 sm:py-4 rounded-lg sm:rounded-2xl text-primary-text text-xs sm:text-sm font-bold focus:border-primary-accent outline-none transition-all"
+          required
+        />
+
+      </div>
+
+      <div className="space-y-1 sm:space-y-2">
+
+        <label className="text-[8px] sm:text-[10px] font-black text-muted-text uppercase tracking-widest">
+          Service
+        </label>
+
+        <select
+          className="w-full bg-secondary-bg/50 border border-border px-3 sm:px-5 py-2 sm:py-4 rounded-lg sm:rounded-2xl text-primary-text text-xs sm:text-sm font-bold focus:border-primary-accent outline-none transition-all"
+          required
+        >
+          <option value="">Choose</option>
+
+          {SERVICE_CATEGORIES.map((service) => (
+            <option key={service.id} value={service.id}>
+              {service.title}
+            </option>
+          ))}
+        </select>
+
+      </div>
+
+      <div className="grid gap-2 sm:grid-cols-2">
+
+        <div className="space-y-1 sm:space-y-2">
+
+          <label className="text-[8px] sm:text-[10px] font-black text-muted-text uppercase tracking-widest">
+            ZIP
+          </label>
+
+          <input
+            type="text"
+            className="w-full bg-secondary-bg/50 border border-border px-3 sm:px-5 py-2 sm:py-4 rounded-lg sm:rounded-2xl text-primary-text text-xs sm:text-sm font-bold focus:border-primary-accent outline-none transition-all"
+            required
+          />
+
+        </div>
+
+        <div className="space-y-1 sm:space-y-2">
+
+          <label className="text-[8px] sm:text-[10px] font-black text-muted-text uppercase tracking-widest">
+            Timing
+          </label>
+
+          <select
+            className="w-full bg-secondary-bg/50 border border-border px-3 sm:px-5 py-2 sm:py-4 rounded-lg sm:rounded-2xl text-primary-text text-xs sm:text-sm font-bold focus:border-primary-accent outline-none transition-all"
+            required
+          >
+            <option value="">Anytime</option>
+            <option value="morning">Morning</option>
+            <option value="afternoon">Afternoon</option>
+            <option value="evening">Evening</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <button
+        type="submit"
+        className="w-full btn-primary !py-2 sm:!py-5 !rounded-lg sm:!rounded-2xl text-[9px] sm:text-sm font-black uppercase tracking-[0.15em] sm:tracking-[0.18em]"
+      >
+        Submit
+      </button>
+
+    </form>
+
+  )}
+
+</div>
       </section>
     </div>
   );
